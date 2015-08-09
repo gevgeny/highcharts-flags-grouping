@@ -2,7 +2,7 @@
 Highcharts plugin which adds possibility to group points in the flags series 
 
 ![example](https://raw.githubusercontent.com/gevgeny/highcharts-flags-grouping/master/demo/demo.png)
-
+[One serie with binding to line example] http://gevgeny.github.io/highcharts-flags-grouping/demo/demo1.html [Multiple series example] http://gevgeny.github.io/highcharts-flags-grouping/demo/demo2.html
 #### Higchart options section to enable plugin. 
 ```javascript
 flagsGrouping : {
@@ -23,4 +23,20 @@ flagsGrouping : {
             groupTimeSpan :      5 * 24 * 60 * 60 * 1000  // group by 5 days
         }]
     }
+```
+The plugin replaces initial set of points with a calculated shorted list every time when chart's extremes change.
+Initial points still available after grouping in `initialPoints` of the point field and can be used for formatting
+```javascript
+tooltip : {
+        formatter : function (tooltip) {
+            if (this.point && this.point.initialPoints) {
+                // Format group of points using this.point.initialPoints;
+            } else if (this.point) {
+                // Format simple flag point
+            } else {
+                // Format for non-flag point
+            } 
+        }
+    }
+}
 ```
