@@ -2,7 +2,7 @@
 Highcharts plugin which adds possibility to group points in the flags series 
 
 ![example](https://raw.githubusercontent.com/gevgeny/highcharts-flags-grouping/master/demo/demo.png)
-[One serie with binding to line example] http://gevgeny.github.io/highcharts-flags-grouping/demo/demo1.html [Multiple series example] http://gevgeny.github.io/highcharts-flags-grouping/demo/demo2.html
+[One serie with binding to line example] (http://gevgeny.github.io/highcharts-flags-grouping/demo/demo1.html) [Multiple series example] (http://gevgeny.github.io/highcharts-flags-grouping/demo/demo2.html)
 #### Higchart options section to enable plugin. 
 ```javascript
 flagsGrouping : {
