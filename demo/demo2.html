@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery.js"></script>
+    <script src="highstock.src.js"></script>
+    <script src="../flags-grouping.js"></script>
+
+    <script src="data.js"></script>
+    <script src="options.js"></script>
+
+    <script>
+        $(function() {
+            var series = [{
+                name : 'MSFT',
+                id : "msft",
+                data : window.msPrices,
+                color: '#f7a35c'
+            },{
+                type : "flags",
+                data : window.msFlags,
+                color : '#f7a35c'
+            },{
+                name : 'Apple',
+                id : "apple",
+                data : window.applePrices,
+                color : '#8085e9'
+            },{
+                type : "flags",
+                data : window.appleFlags,
+                color : '#8085e9'
+            }];
+            //series.push(window.flags);
+            $('#container').highcharts('StockChart', $.extend(true, {}, window.options, {
+                series : series,
+                tooltip : {
+                    positioner: function (w, h, point) {
+                        if(this.chart.flagTooltip) {
+                            return { x: 10, y: 10 };
+                        } else {
+                            return this.getPosition(w, h, point);
+                        }
+                    }
+                }
+
+            }));
+        });
+    </script>
+</head>
+
+<body>
+
+<div id="container" style="height: 500px; min-width: 500px"></div>
+</body>
+
+</html>

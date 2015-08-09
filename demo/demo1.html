@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery.js"></script>
+    <script src="highstock.src.js"></script>
+    <script src="../flags-grouping.js"></script>
+
+    <script src="data.js"></script>
+    <script src="options.js"></script>
+
+    <script>
+        $(function() {
+            var series = [{
+                name : 'MSFT',
+                id : "msft",
+                data : window.msPrices
+            },{
+                type : "flags",
+                data : window.msFlags,
+
+                onSeries :"msft",
+                color : '#28AE7A'
+            }];
+            //series.push(window.flags);
+            $('#container').highcharts('StockChart', $.extend({}, window.options, {
+                series : series
+            }));
+        });
+
+    </script>
+</head>
+
+<body>
+
+<div id="container" style="height: 500px; min-width: 500px"></div>
+</body>
+
+</html>
