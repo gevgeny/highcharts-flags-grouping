@@ -3,7 +3,7 @@ Highcharts plugin which adds possibility to group points in the flags series
 
 ![example](https://raw.githubusercontent.com/gevgeny/highcharts-flags-grouping/demo/demo.png)
 
-#### Higchart optionц section to enable plugin. 
+#### Higchart options section to enable plugin. 
 ```javascript
 flagsGrouping : {
         // Calculate fill color for each group point from the serie color and count of initial points in the grouped point 
