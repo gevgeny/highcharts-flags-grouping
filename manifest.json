@@ -1,0 +1,38 @@
+{
+  "name": "flags-grouping",
+  "version": "",
+  "title": "Flags Grouping",
+  "author": {
+    "name": "Eugene Gluhotorenko",
+    "url": "https://github.com/gevgeny"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/gevgeny/highcharts-flags-grouping/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "highstock": "2.1.7"
+  },
+  "description": "Plugin that adds possibility to group close flags",
+  "keywords": [
+    "flags",
+    "grouping"
+  ],
+  "homepage": "https://github.com/gevgeny/highcharts-flags-grouping",
+  "docs": "https://github.com/gevgeny/highcharts-flags-grouping",
+  "bugs": "https://github.com/gevgeny/highcharts-flags-grouping/issues",
+  "download": "https://raw.githubusercontent.com/gevgeny/highcharts-flags-grouping/master/flags-grouping.js",
+  "demo": [
+    "http://gevgeny.github.io/highcharts-flags-grouping/demo/demo1.html",
+    "http://gevgeny.github.io/highcharts-flags-grouping/demo/demo2.html"
+  ],
+  "maintainers": [
+    {
+      "name": "Eugene Gluhotorenko",
+      "url": "https://github.com/gevgeny",
+      "email": "e.gluhotorenko@gmail.com"
+    }
+  ]
+}
