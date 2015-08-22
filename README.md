@@ -12,7 +12,7 @@ flagsGrouping : {
         // Calculate fill color for each group point from the serie color and count of initial points in the grouped point 
         calculateFillColor : true,
         
-        // Specify whether to select group tine interval on marker click
+        // Specify whether to select group time interval on flag marker click
         selectGroupOnClick : true,
         
         // Min possible time interval to be selected on marker click (if selectGroupOnClick specified)
