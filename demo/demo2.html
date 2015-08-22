@@ -30,16 +30,38 @@
                 data : window.appleFlags,
                 color : '#8085e9'
             }];
-            //series.push(window.flags);
             $('#container').highcharts('StockChart', $.extend(true, {}, window.options, {
                 series : series,
                 tooltip : {
+                    followPointer : false,
                     positioner: function (w, h, point) {
-                        if(this.chart.flagTooltip) {
-                            return { x: 10, y: 10 };
+                        var minAllowedBottom = this.chart.xAxis[0].height - 20;
+                        var position;
+
+                        if (this.chart.flagTooltip) {
+                            var xOffset = 20;
+                            var yOffset = 10;
+
+                            position = {
+                                x : point.plotX - w / 2,
+                                y: point.plotY - h + yOffset
+                            };
+                            if (position.x < 0) {
+                                position.x = 0;
+                            }
+                            if (position.x > this.chart.chartWidth - w - xOffset) {
+                                position.x = this.chart.chartWidth - w - xOffset;
+                            }
                         } else {
-                            return this.getPosition(w, h, point);
+                            position = this.getPosition(w, h, point);
                         }
+                        var toolTipBottom = position.y + h;
+
+                        if (toolTipBottom > minAllowedBottom) {
+                            position.y -= toolTipBottom - minAllowedBottom;
+                        }
+
+                        return position;
                     }
                 }
 
