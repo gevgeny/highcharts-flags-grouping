@@ -25,8 +25,8 @@
   "bugs": "https://github.com/gevgeny/highcharts-flags-grouping/issues",
   "download": "https://raw.githubusercontent.com/gevgeny/highcharts-flags-grouping/master/flags-grouping.js",
   "demo": [
-    "http://gevgeny.github.io/highcharts-flags-grouping/demo/demo1.html",
-    "http://gevgeny.github.io/highcharts-flags-grouping/demo/demo2.html"
+    "http://jsfiddle.net/gevgeny/u6rdk2u1/",
+    "http://jsfiddle.net/gevgeny/1o3ygzb3/"
   ],
   "maintainers": [
     {
