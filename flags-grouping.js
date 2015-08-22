@@ -177,6 +177,7 @@
     H.wrap(H.Series.prototype, 'setData', function (proceed, points) {
         var opts = this.chart.options.flagsGrouping;
         if (this.type === 'flags' && opts) {
+            console.log('init flags grouping for ', this.name);
             groupPoints(this, arguments[1], opts, this.color);
             chartsOpts.set(this.chart, opts);
 
@@ -248,4 +249,47 @@
         }
         proceed.apply(this, Array.prototype.slice.call(arguments, 1));
     });
+
+    /**
+     * Use this hook to select group points date range
+     * */
+    H.wrap(H.Point.prototype, 'firePointEvent', function (proceed, eventType) {
+        var opts = this.series.chart.options.flagsGrouping;
+
+        proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+
+        if (opts &&
+            opts.selectGroupOnClick &&
+            eventType === 'click' &&
+            this.series.type === 'flags' &&
+            this.initialPoints &&
+            this.initialPoints.length > 1
+        ) {
+            var start = this.initialPoints[0].x;
+            var end = this.initialPoints[this.initialPoints.length - 1].x;
+
+            // Extend group date range up to the minimal value
+            if (end - start < opts.minSelectableDateRange) {
+                var timeExtendTo = (opts.minSelectableDateRange - (end - start)) / 2;
+
+                start -= timeExtendTo;
+                end += timeExtendTo;
+
+                // Shift the result date range if after extension it exceeds the possible values
+                if (start < this.series.xAxis.dataMin) {
+                    end += this.series.xAxis.dataMin - start;
+                    start = this.series.xAxis.dataMin;
+                } else if (end > this.series.xAxis.dataMax) {
+                    start -= end - this.series.xAxis.dataMax;
+                    end = this.series.xAxis.dataMax;
+                }
+            }
+
+            this.series.xAxis.setExtremes(start, end, true, true);
+            console.log('firePointEvent', arguments);
+        }
+
+
+    });
 }(Highcharts));
+

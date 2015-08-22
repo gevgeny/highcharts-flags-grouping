@@ -55,36 +55,29 @@ window.options = {
                 mouseOut: function(){
                     this.chart.flagTooltip = false;
                 }
-            },
-            point: {
-                events: {
-                    click: function () {
-                        if (this.initialPoints) {
-                            this.series.xAxis.setExtremes(this.initialPoints[0].x, this.initialPoints[this.initialPoints.length - 1].x, true, true);
-                        }
-                    }
-                }
             }
         }
     },
     flagsGrouping : {
         calculateFillColor : true,
+        selectGroupOnClick : true,
+        minSelectableDateRange : 14 * 24 * 60 * 60 * 1000, // 2 weeks;
         groupings : [{
-            zoomTimeSpan : 2 * 365 * 24 * 60 * 60 * 1000, // when more then 2 years selected
-            groupTimeSpan :     60 * 24 * 60 * 60 * 1000  // group flags by 60 days
+            zoomTimeSpan :  2 * 365 * 24 * 60 * 60 * 1000, // when more then 2 years selected
+            groupTimeSpan :      60 * 24 * 60 * 60 * 1000  // group flags by 60 days
         },{
-            zoomTimeSpan :     365 * 24 * 60 * 60 * 1000, // when from 2 to 1 years selected
-            groupTimeSpan :     30 * 24 * 60 * 60 * 1000  // group by 30 days
+            zoomTimeSpan :      365 * 24 * 60 * 60 * 1000, // when from 2 to 1 years selected
+            groupTimeSpan :      30 * 24 * 60 * 60 * 1000  // group by 30 days
         }, {
-            zoomTimeSpan :     182 * 24 * 60 * 60 * 1000, // when from 1 to half year selected
-            groupTimeSpan :     15 * 24 * 60 * 60 * 1000  // group flags by 15 days
+            zoomTimeSpan :      182 * 24 * 60 * 60 * 1000, // when from 1 to half year selected
+            groupTimeSpan :      15 * 24 * 60 * 60 * 1000  // group flags by 15 days
         }, {
-            zoomTimeSpan :      90 * 24 * 60 * 60 * 1000, // when from half year to 3 month selected
-            groupTimeSpan :      5 * 24 * 60 * 60 * 1000  // group by 5 days
+            zoomTimeSpan :       90 * 24 * 60 * 60 * 1000, // when from half year to 3 month selected
+            groupTimeSpan :       5 * 24 * 60 * 60 * 1000  // group by 5 days
         }]
     },
 
     title : {
         text : 'MSFT Stock Price'
-    },
+    }
 };
