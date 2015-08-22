@@ -1,4 +1,4 @@
-# highcharts-flags-grouping
+# [highcharts-flags-grouping](http://www.highcharts.com/plugin-registry/single/41/flags-grouping)
 [Highcharts](http://www.highcharts.com) plugin which adds possibility to group points in the flags series 
 
 * [One serie with binding to line example] (http://gevgeny.github.io/highcharts-flags-grouping/demo/demo1.html) 
