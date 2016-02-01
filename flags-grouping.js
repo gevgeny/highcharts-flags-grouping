@@ -228,7 +228,13 @@
             axis = this,
             timeSpan = max - min;
 
-        if (opts) {
+        if (opts && axis.coll === 'xAxis') {
+            if (min === undefined && max === undefined){
+                min = axis.getExtremes().dataMin;
+                max = axis.getExtremes().dataMax;
+                timeSpan = max - min;
+            }
+
             pointsGroups.forEach(function (pointsLists, serie) {
                 if (serie.chart !== chart || serie.xAxis !== axis || !pointsGroups.get(serie).isAddedToChart) {
                     return;
